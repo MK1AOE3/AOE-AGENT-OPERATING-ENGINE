@@ -94,7 +94,7 @@ The architecture intentionally separates proposal, authorization, execution, obs
 
 ---
 
-5. AOE3 Control
+## 5. AOE3 Control
 
 AOE3 Control is responsible for determining whether a proposed consequential action satisfies the required authorization conditions. A decision may depend on factors such as action identity, actor/agent identity, target resource, permitted operation, policy version, evidence presence, evidence integrity, transaction amount, contextual attributes, authorization lifetime, human approval requirements, replay status, and environmental constraints.
 
@@ -113,7 +113,7 @@ Missing or indeterminate evidence must not silently become authorization.
 
 ---
 
-6. Execution Boundary
+## 6. Execution Boundary
 
 An authorization decision alone does not prove that execution was correctly constrained. AOE3 therefore maintains another distinction:
 
@@ -126,7 +126,7 @@ A claim that AOE3 controls execution must therefore remain bounded to the execut
 
 ---
 
-7. Independent Verification — Gate E
+## 7. Independent Verification — Gate E
 
 AOE3 makes a particularly important distinction between cryptographic authenticity and execution truth.
 
@@ -147,7 +147,7 @@ If required independent evidence is absent, the system must not manufacture veri
 
 ---
 
-8. Evidence Architecture
+## 8. Evidence Architecture
 
 AOE3 treats evidence as a first-class system output. A useful evidence package may bind proposal identity, policy decision, authorization result, policy version, action parameters, target, execution context, timestamps, evidence inventory, authorization lifetime, replay state, execution observation, verification result, provenance, integrity digests, and signature state.
 
@@ -155,7 +155,7 @@ The evidence model is intended to support independent review rather than requiri
 
 ---
 
-9. Cryptographic Integrity
+## 9. Cryptographic Integrity
 
 AOE3 may use cryptographic mechanisms to protect evidence integrity and authenticity. These mechanisms can establish properties such as byte identity, origin authentication, tamper detection, linkage between related artifacts, and provenance.
 
@@ -175,7 +175,7 @@ Independent verification therefore remains necessary.
 
 ---
 
-10. Human Authority
+## 10. Human Authority
 
 AOE3 does not remove human authority. Certain actions may require human approval. A Human-in-the-Loop state may therefore be represented as:
 
@@ -187,7 +187,7 @@ The human decision itself becomes part of the evidence chain. An expired or inva
 
 ---
 
-11. Fail-Closed Operation
+## 11. Fail-Closed Operation
 
 AOE3 is designed around fail-closed reasoning for consequential actions. Examples of conditions that may require denial or hold include missing evidence, invalid evidence, expired authorization, replayed authorization, policy mismatch, unauthorized target, parameter mismatch, failed verification, inconsistent execution evidence, unresolved authority, and unknown state.
 
@@ -197,7 +197,7 @@ The governing principle remains:
 
 ---
 
-12. Model and Provider Independence
+## 12. Model and Provider Independence
 
 AOE3 is designed as an independent authorization and assurance layer. It can conceptually integrate with different AI providers, local models, cloud models, agent frameworks, or enterprise systems.
 
@@ -205,7 +205,7 @@ The model's role is intelligence. AOE3's role is authority and verification. The
 
 ---
 
-13. Sovereign Profile
+## 13. Sovereign Profile
 
 AOE3 Sovereign represents a higher-assurance operating profile. It should not be interpreted as a replacement for the core architecture.
 
@@ -215,7 +215,7 @@ The Sovereign profile may include additional controls for local execution, netwo
 
 ---
 
-14. Product Layers
+## 14. Product Layers
 
 AOE3 can be expressed through several product or assurance profiles:
 
@@ -227,7 +227,7 @@ These product profiles share the same architectural doctrine.
 
 ---
 
-15. Demonstration vs Production
+## 15. Demonstration vs Production
 
 AOE3 strictly separates demonstration from production qualification. A demonstrator can show deterministic policy decisions, ALLOW/DENY/ESCALATE states, fail-closed behavior, evidence generation, authorization lifecycle, replay handling, expiry, and independent verification logic.
 
@@ -242,7 +242,7 @@ Each production environment requires its own evidence and qualification scope.
 
 ---
 
-16. Claim Discipline
+## 16. Claim Discipline
 
 AOE3 uses controlled claim states to prevent architectural intent from being represented as empirical fact. A claim should identify exact claim text, evidence state, evidence artifact, verification scope, limitations, applicable version, and permitted disclosure audience.
 
@@ -251,7 +251,7 @@ CLAIM leads to PRODUCT, COMPONENT, VERSION, SOURCE ARTIFACT, EVIDENCE, VERIFICAT
 
 ---
 
-17. Evidence-State Distinctions
+## 17. Evidence-State Distinctions
 
 AOE3 preserves distinctions including:
 
@@ -267,7 +267,7 @@ These states must not be silently collapsed.
 
 ---
 
-18. Security Boundary
+## 18. Security Boundary
 
 AOE3 is intended to reduce the authority available to autonomous intelligence. Security principles include least privilege, deterministic policy enforcement, explicit evidence requirements, short-lived authority, replay resistance, credential separation, bounded executors, controlled network access, independent observation, fail-closed behavior, and auditable decisions.
 
@@ -275,7 +275,7 @@ Specific controls remain implementation- and deployment-dependent.
 
 ---
 
-19. Enterprise Integration
+## 19. Enterprise Integration
 
 AOE3 is not intended to replace enterprise infrastructure. It can operate alongside IAM, RBAC / ABAC, API gateways, SIEM, policy engines, workflow systems, cloud infrastructure, databases, enterprise applications, and AI agent frameworks.
 
@@ -283,7 +283,7 @@ AOE3's value proposition is the independent consequential-action boundary betwee
 
 ---
 
-20. Example Use Cases
+## 20. Example Use Cases
 
 Potential use cases include:
 
@@ -296,7 +296,7 @@ These are application categories, not claims that every listed environment is al
 
 ---
 
-21. Commercial Model
+## 21. Commercial Model
 
 AOE3 is positioned as a product and private-IP company. Professional or assessment services may support customer discovery, readiness analysis, evidence development, integration design, and controlled pilot preparation.
 
@@ -308,7 +308,7 @@ Bounded services support commercialization of the product; they do not redefine 
 
 ---
 
-22. Ownership and Authority
+## 22. Ownership and Authority
 
 AOE3 architecture, product direction, evidence promotion, disclosure, release, and governance remain under owner authority. No AI provider, cloud provider, customer, partner, or external reviewer gains architectural authority merely by providing infrastructure, reviewing a document, participating in a pilot, supplying API access, providing credits, signing an NDA, or joining a commercial discussion.
 
@@ -316,7 +316,7 @@ Commercial partnership and architectural authority are separate.
 
 ---
 
-23. Source-of-Truth Discipline
+## 23. Source-of-Truth Discipline
 
 AOE3 follows a hierarchy of evidence. Highest authority belongs to:
 
@@ -330,7 +330,7 @@ Artifact integrity does not automatically establish substantive correctness.
 
 ---
 
-24. Current Qualification Position
+## 24. Current Qualification Position
 
 This whitepaper describes the AOE3 architecture and product philosophy. It must not independently be used as evidence that a particular deployment is production-qualified, a specific provider integration is completed, non-bypassability has been universally established, regulatory certification has been obtained, every architectural control has been empirically demonstrated, or a commercial partnership exists.
 
@@ -338,7 +338,7 @@ Those states require their own evidence.
 
 ---
 
-25. Strategic Principle
+## 25. Strategic Principle
 
 The central AOE3 proposition can be summarized simply:
 
@@ -350,7 +350,7 @@ Or, operationally:
 
 ---
 
-26. Conclusion
+## 26. Conclusion
 
 Autonomous AI creates enormous capability. Capability alone should not confer consequential authority.
 
@@ -362,7 +362,7 @@ AOE3's governing idea is therefore not anti-AI. It is a framework for using powe
 
 ---
 
-27. Technical Architecture: Separation of Planes
+## 27. Technical Architecture: Separation of Planes
 
 The core design principle of the MK AOE3 architecture is the strict architectural separation of the inference engine from protected state-changing interfaces.
 
@@ -394,13 +394,13 @@ The core design principle of the MK AOE3 architecture is the strict architectura
 +------------------------------------------------------------+
 ```
 
-27.1 The Reasoning Plane vs. Execution Plane
+### 27.1 The Reasoning Plane vs. Execution Plane
 
 The AOE3 reference architecture requires the Reasoning Plane to operate without direct authority to invoke protected network, database, persistent-storage, or other state-changing interfaces. Access to consequential operations is mediated through the defined authorization and execution boundary. When an agent determines an action is required, it emits a structured tool-call intent (a Proposal) rather than executing code directly.
 
 The Execution Plane treats all inputs from the Reasoning Plane as untrusted byte streams, requiring a valid, cryptographically signed lease before any operation is permitted.
 
-27.2 Interception Mechanics
+### 27.2 Interception Mechanics
 
 Interception occurs at the exact boundary where a tool call transitions from logical intent to system state change. Rather than relying on application-level middleware, enforcement intercepts execution via a mandatory evaluation gate:
 
@@ -410,13 +410,13 @@ Where τ is the raw payload, σ is the cryptographic identity, and π is the pol
 
 ---
 
-28. Cryptographic Source Identity and Authentication
+## 28. Cryptographic Source Identity and Authentication
 
 To prevent impersonation and tampering between the reasoning loop and the execution kernel, every action must carry verifiable provenance.
 
 The action representation may be integrity-bound and authenticated using the applicable AOE3 cryptographic profile. Ed25519 is used within defined AOE3 evidence/signature contexts; key scope, custody, and lifecycle are governed separately.
 
-28.1 Key 60 Design Requirement
+### 28.1 Key 60 Design Requirement
 
 Long-lived static key material can increase exposure and therefore requires explicit lifecycle, custody, and rotation controls. The AOE3 reference architecture defines a design requirement under which authorization leases expire within a defined 60-second validity window.
 
@@ -428,11 +428,11 @@ A short authorization lifetime limits the validity window of the affected author
 
 ---
 
-29. Non-Compensatory Containment Mechanics
+## 29. Non-Compensatory Containment Mechanics
 
 A foundational vulnerability in modern security systems is compensatory control drift, where an administrator introduces secondary privileges to resolve a primary blockage (e.g., "If the token is expired, fall back to default role").
 
-29.1 The Fail-Closed Invariant
+### 29.1 The Fail-Closed Invariant
 
 Our architecture enforces Non-Compensatory Containment. Safety checks are orthogonal and non-negotiable. If any single validation gate fails (semantic boundary, cryptographic signature, lease expiration, or rate limit), execution is DENIED.
 
@@ -440,13 +440,13 @@ No subsequent heuristic override or LLM-driven self-correction loop can compensa
 
 ---
 
-30. Network Boundary Semantics: Limits of CNI vs. System-Level Enforcement
+## 30. Network Boundary Semantics: Limits of CNI vs. System-Level Enforcement
 
-30.1 Limits of Declarative Policy Abstractions
+### 30.1 Limits of Declarative Policy Abstractions
 
 Declarative policies (e.g., CNI YAML manifests) are powerful for static microservices but exhibit limitations for autonomous agents. Declarative policy expresses intended connectivity, while actual enforcement depends on the selected datapath, implementation, policy propagation state, and deployment configuration. AOE3 therefore does not treat declarative policy presence alone as proof that a consequential action was prevented at execution time.
 
-30.2 System-Level Telemetry and Enforcement
+### 30.2 System-Level Telemetry and Enforcement
 
 AOE3 may use appropriate eBPF attachment points for connection-level policy, process/file enforcement, and telemetry.
 
@@ -456,7 +456,7 @@ AOE3 may use appropriate eBPF attachment points for connection-level policy, pro
 
 ---
 
-31. Independent Verification — Gate E Execution Reconciliation
+## 31. Independent Verification — Gate E Execution Reconciliation
 
 AOE3 makes a critical distinction between cryptographic authenticity and execution truth.
 
@@ -489,7 +489,7 @@ The verification layer compares the authorized claim against independently obser
 
 ---
 
-32. Technical Conclusion
+## 32. Technical Conclusion
 
 Autonomous AI agents require infrastructure-grade security that matches their operational velocity. By combining Datapath Enforcement, Cryptographic Source Identity, Non-Compensatory Containment, and Independent Verification (Gate E), this architecture reduces reliance on probabilistic self-policing by placing consequential authority outside the reasoning model.
 
