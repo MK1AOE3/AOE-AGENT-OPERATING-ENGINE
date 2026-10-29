@@ -278,4 +278,4 @@ Public-AOE3 separates the claims that are often incorrectly combined into a sing
 
 The artifact is public. The claims are bounded. The verification procedure is explicit. Independent evidence determines which guarantees have been established.
 
-The objective is not to ask reviewers to trust a declaration of security, but to provide a precise basis on which they can inspect, test, reproduce, and evaluate the system.
+The objective is not to ask reviewers to trust a declaration of security, but to provide a precise basis on which they can inspect, test, reproduce, and evaluate the system
