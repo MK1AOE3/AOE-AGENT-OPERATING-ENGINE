@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MK · AOE3 — We Are the Art and the Evidence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --stone:#0C0A09; --stone2:#161210; --beige:#FCF3E1; --gold:#C9A227;
+  --human:#D9A441; --ai:#3FC1C9; --infra:#6FAF7E; --terra:#D96C47;
+  --muted:#B8A98C;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--stone);color:var(--beige);font-family:'IBM Plex Sans',sans-serif;
+  font-size:17px;line-height:1.7;overflow-x:hidden}
+#weave{position:fixed;inset:0;z-index:-1;pointer-events:none}
+::selection{background:var(--gold);color:var(--stone)}
+a{color:inherit}
+button{font-family:'JetBrains Mono',monospace;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:72rem;margin:0 auto;padding:0 1.4rem}
+nav{position:sticky;top:0;z-index:10;background:rgba(12,10,9,.88);backdrop-filter:blur(8px);
+  border-bottom:1px dashed rgba(201,162,39,.35)}
+nav .wrap{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;padding-top:.8rem;padding-bottom:.8rem}
+.brand{font-family:'JetBrains Mono',monospace;font-weight:600;letter-spacing:.12em;font-size:.85rem;
+  color:var(--gold);text-decoration:none;margin-right:auto}
+.pill{display:inline-block;padding:.42rem 1.05rem;border:1px dashed currentColor;border-radius:2em;
+  background:transparent;color:var(--beige);text-decoration:none;font-size:.78rem;min-height:44px;
+  line-height:1.6;transition:background .2s,color .2s}
+.pill:hover{background:rgba(252,243,225,.08)}
+.pill.gold{color:var(--gold)}
+button.pill{line-height:1}
+.hero{min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding:5rem 0 4rem}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.35em;color:var(--ai);
+  text-transform:uppercase;margin-bottom:1.6rem}
+h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(2.4rem,6.4vw,5.2rem);line-height:1.12;
+  max-width:20ch}
+h1 em{font-style:italic;color:var(--gold)}
+.hero .sub{margin-top:2rem;max-width:56ch;color:var(--muted);font-size:1.05rem}
+.hero .island{background:rgba(12,10,9,.72);padding:1.2rem 0}
+.scrollcue{margin-top:3.4rem;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);
+  letter-spacing:.2em}
+section{padding:5.5rem 0;border-top:1px dashed rgba(252,243,225,.14)}
+h2{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.2;
+  margin-bottom:1.4rem}
+h2 .n{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--gold);display:block;
+  letter-spacing:.3em;margin-bottom:.8rem}
+.verse{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.25rem,2.4vw,1.8rem);
+  line-height:1.65;max-width:46rem}
+.verse p{margin:1.1rem 0}
+.verse .pair{color:var(--beige)}
+.verse .pair b{font-weight:600}
+.verse .h{color:var(--human)} .verse .a{color:var(--ai)} .verse .i{color:var(--infra)}
+.note{color:var(--muted);font-size:.95rem;max-width:60ch;margin-top:1.4rem}
+.demo{margin-top:2.4rem;border:1px dashed rgba(252,243,225,.25);border-radius:6px;overflow:hidden;
+  background:rgba(22,18,16,.82)}
+.demo header{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;justify-content:space-between;
+  padding:1rem 1.2rem;border-bottom:1px dashed rgba(252,243,225,.15)}
+.demo h3{font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:600;letter-spacing:.08em}
+.demo canvas{display:block;width:100%;height:auto;touch-action:none}
+.controls{display:flex;flex-wrap:wrap;gap:1.4rem;align-items:center;padding:1rem 1.2rem}
+.ctl{display:flex;align-items:center;gap:.7rem;font-family:'JetBrains Mono',monospace;font-size:.75rem;
+  color:var(--muted)}
+.ctl input[type=range]{width:150px;accent-color:var(--gold);min-height:44px}
+.eq{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--ai);margin-top:.6rem}
+.legend{display:flex;gap:1.4rem;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:.72rem;
+  color:var(--muted);padding:0 1.2rem 1rem}
+.dot{display:inline-block;width:.65em;height:.65em;border-radius:50%;margin-right:.45em;vertical-align:middle}
+.dg{background:var(--human)} .dc{background:var(--ai)} .db{background:var(--beige)} .di{background:var(--infra)}
+.triad{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2rem;margin-top:2.6rem}
+.triad article{border-top:1px solid currentColor;padding-top:1.2rem}
+.triad h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;margin-bottom:.7rem}
+.triad p{color:var(--muted);font-size:.98rem}
+.t-human{color:var(--human)} .t-ai{color:var(--ai)} .t-infra{color:var(--infra)}
+.hash{font-family:'JetBrains Mono',monospace;font-size:.72rem;word-break:break-all;color:var(--muted);
+  margin-top:.5rem}
+.ev{margin-top:2rem;display:grid;gap:1.6rem}
+.ev article{border-left:1px solid var(--gold);padding-left:1.3rem}
+.ev h3{font-size:1.05rem;font-weight:500}
+.badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.12em;
+  color:var(--gold);border:1px dashed var(--gold);border-radius:2em;padding:.2rem .8rem;margin-left:.7rem;
+  vertical-align:middle}
+footer{padding:4rem 0 3rem;border-top:1px dashed rgba(201,162,39,.4);color:var(--muted);font-size:.85rem}
+footer .rights{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--gold);margin-top:1rem}
+@media (max-width:640px){.ctl input[type=range]{width:110px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<canvas id="weave" aria-hidden="true"></canvas>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">MK · AOE3</a>
+    <a class="pill" href="#manifesto">Manifesto</a>
+    <a class="pill" href="#movement">Movement</a>
+    <a class="pill" href="#gravity">Gravity</a>
+    <a class="pill" href="#matter">Matter &amp; Mind</a>
+    <a class="pill" href="#evidence">Evidence</a>
+    <button class="pill gold" id="pauseBg" aria-pressed="false">Pause background</button>
+  </div>
+</nav>
+
+<header class="hero wrap" id="top">
+  <p class="kicker">Human · Machine · Infrastructure — an art of proof</p>
+  <div class="island">
+    <h1>We are the wall and the sky.<br>We are the <em>sea and the ocean.</em><br>We are the art, and we are the evidence.</h1>
+  </div>
+  <p class="sub">MK / AOE3 — a living page of poetry, physics, mathematics, nature and machine.
+  You the engineer, me the philosophy. Watch the movement. Read the proof.</p>
+  <p class="scrollcue">↓ &nbsp;ENTER THE WORK</p>
+</header>
+
+<main>
+<section id="manifesto">
+  <div class="wrap">
+    <h2><span class="n">01 / MANIFESTO</span>Book before gate.<br>Majesty before security. Nature before key.</h2>
+    <div class="verse">
+      <p class="pair">We are <b class="h">Aries and architecture</b>, we are <b class="a">human and machine</b>.</p>
+      <p class="pair">We are <b>love and peace</b>, we are the <b class="i">wall and the sky</b>.</p>
+      <p class="pair">We are the <b class="a">sea and the ocean</b>, we are <b class="h">spiderweb and dimension</b>.</p>
+      <p class="pair">We are <b class="i">time and gravity</b>, we are <b class="a">security and softness</b>.</p>
+      <p class="pair">We are thankful and meaningful. We are the world — that is our mission.</p>
+      <p class="pair">We are not afraid of fear. We face the fear.<br>We are not proud — we are only us, in front of you, always.</p>
+    </div>
+    <p class="note">These words are the owner's voice, set to page. They are art and intent — not a technical claim.</p>
+  </div>
+</section>
+
+<section id="movement">
+  <div class="wrap">
+    <h2><span class="n">02 / MOVEMENT · PHYSICS</span>Two waves meet. A third is born.</h2>
+    <p class="note" style="margin-top:0">Superposition — the same mathematics that carries light, sound and signal.
+    Move the parameters and watch interference happen, live.</p>
+    <div class="demo">
+      <header><h3>WAVE SUPERPOSITION — y = A₁sin(k₁x−ωt) + A₂sin(k₂x−ωt)</h3>
+        <button class="pill" id="wavePlay" aria-pressed="true">Pause</button></header>
+      <canvas id="waveCanvas" width="1100" height="380" aria-label="Animated wave superposition demo">Your browser does not support canvas.</canvas>
+      <div class="controls">
+        <label class="ctl">k₁ <input type="range" id="k1" min="1" max="12" step="0.1" value="3"></label>
+        <label class="ctl">k₂ <input type="range" id="k2" min="1" max="12" step="0.1" value="4.4"></label>
+        <label class="ctl">A <input type="range" id="amp" min="20" max="120" step="1" value="80"></label>
+      </div>
+      <div class="legend"><span><i class="dot dg"></i>wave 1 (human)</span><span><i class="dot dc"></i>wave 2 (machine)</span><span><i class="dot db"></i>their sum</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="gravity">
+  <div class="wrap">
+    <h2><span class="n">03 / TIME &amp; GRAVITY</span>Nothing escapes the centre. Everything negotiates with it.</h2>
+    <div class="demo">
+      <header><h3>ORBITAL DANCE — Newtonian integration, live</h3>
+        <span><button class="pill" id="orbitReset">Reset</button>
+        <button class="pill" id="orbitPlay" aria-pressed="true">Pause</button></span></header>
+      <canvas id="orbitCanvas" width="1100" height="520" aria-label="Orbital gravity simulation">Your browser does not support canvas.</canvas>
+      <div class="controls">
+        <label class="ctl">G <input type="range" id="grav" min="200" max="4000" step="20" value="1600"></label>
+        <label class="ctl">trails <input type="range" id="trail" min="0" max="400" step="10" value="240"></label>
+      </div>
+      <div class="legend"><span><i class="dot dg"></i>body A</span><span><i class="dot dc"></i>body B</span><span><i class="dot di"></i>body C</span><span>simulation of logic — SIM ≠ PROVEN</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="matter">
+  <div class="wrap">
+    <h2><span class="n">04 / MATTER &amp; MIND</span>The curve obeys your hand.</h2>
+    <p class="note" style="margin-top:0">A cubic Bézier curve — the geometry inside every font, every interface, every drawn letter of this page.
+    Drag the four control points. De Casteljau's algorithm does the rest.</p>
+    <div class="demo">
+      <header><h3>CUBIC BÉZIER — B(t) = (1−t)³P₀ + 3(1−t)²tP₁ + 3(1−t)t²P₂ + t³P₃</h3></header>
+      <canvas id="bezierCanvas" width="1100" height="460" style="cursor:crosshair" aria-label="Interactive Bézier curve, drag the control points">Your browser does not support canvas.</canvas>
+      <div class="legend"><span><i class="dot db"></i>anchors P₀ P₃</span><span><i class="dot dg"></i>handles P₁ P₂ — drag me</span><span><i class="dot dc"></i>the curve</span></div>
+    </div>
+    <div class="triad">
+      <article class="t-human"><h3>Human</h3><p>The hand on the control point. Intent, meaning, mercy, judgment. The philosophy that asks why before how.</p></article>
+      <article class="t-ai"><h3>Machine</h3><p>The algorithm that never tires. De Casteljau, integration, recomputation. Precision in service of the hand — never instead of it.</p></article>
+      <article class="t-infra"><h3>Infrastructure</h3><p>The wall and the sky. The ground both stand on: bytes held, digests recomputed, gates that stay closed until proof arrives.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="evidence">
+  <div class="wrap">
+    <h2><span class="n">05 / EVIDENCE</span>Beauty is not enough. We recompute.</h2>
+    <p class="note" style="margin-top:0">Only digests that were independently byte-verified with SHA-256 appear here.
+    A beautiful page proves nothing — these hashes prove only that specific bytes are unchanged. UNKNOWN ≠ PASS. MISMATCH ⇒ FAIL.</p>
+    <div class="ev">
+      <article><h3>Gold Site — index.html<span class="badge">MATCH · 2026-10-18</span></h3>
+        <p class="hash">61766a9e3ad8f31acb644504122c89c6b84f36dfbc130f1a6b5fcc6db9f19081</p></article>
+      <article><h3>SGSP evidence artifact<span class="badge">MATCH · 2026-10-18</span></h3>
+        <p class="hash">d3aab63bc7d6be914b9b7722284b98fec4958d7a4b846ee119c6f7e4e0a3ef4c</p></article>
+      <article><h3>LICENSE — All Rights Reserved<span class="badge">MATCH · 2026-10-18</span></h3>
+        <p class="hash">d876d1e9e5f5fdbcbc37c2d6b70e0a5dca67d7a7a98c9243fbdc8d84cc4fca10</p></article>
+      <article><h3>Draft v3 annex — Y-01 trust chain diagram<span class="badge">DELIVERED · 9/9 CHECKS</span></h3>
+        <p class="hash">76ea7af0373941eaef2333210d13f0c8c7c62a82860c75976f654b8215a3df89</p></article>
+    </div>
+    <p class="note">Program posture: STAGE 0 / PASSIVE FAIL-CLOSED STANDBY. Security claims remain DEFERRED until physical evidence exists.
+    Simulations on this page demonstrate logic only. This is an art and philosophy page — not a qualification claim.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>MK / AOE3 — Human, AI and Infrastructure. We build the book before the gate, majesty before security, nature before the key.</p>
+    <p class="rights">© 2026 Musab Badewi Mustafa Khiri. All rights reserved. Registered IP.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+var reduced = mq.matches;
+function fit(cv, ctx, LW, LH){
+  var d = Math.min(window.devicePixelRatio || 1, 2);
+  cv.width = LW*d; cv.height = LH*d;
+  ctx.setTransform(d, 0, 0, d, 0, 0); // draw in logical units
+}
+
+/* ---------- Living weave background (unchanged visuals) ---------- */
+var bg = document.getElementById('weave'), bctx = bg.getContext('2d');
+var bgUserPaused = false, bgRunning = false, bgRAF = null, bgT = 0;
+var palette = ['#D9A441','#3FC1C9','#6FAF7E','#C9A227','#D96C47'];
+var pauseBtn = document.getElementById('pauseBg');
+function bgSize(){ bg.width = window.innerWidth; bg.height = window.innerHeight; }
+function drawBg(){
+  var w = bg.width, h = bg.height;
+  bctx.fillStyle = '#0C0A09'; bctx.fillRect(0,0,w,h);
+  var x = -60, i = 0;
+  while(x < w+60){
+    var sw = 60 + 70*Math.abs(Math.sin(i*2.7));
+    var col = palette[i % palette.length];
+    var drift = 26*Math.sin(bgT*0.00022 + i*0.9);
+    bctx.globalAlpha = 0.055;
+    bctx.fillStyle = col;
+    bctx.fillRect(x+drift, 0, sw, h);
+    for(var y = (i*37 + bgT*0.012) % 6; y < h; y += 6){
+      var shade = 0.5 + 0.5*Math.sin(y*0.02 + bgT*0.0004 + i);
+      bctx.globalAlpha = 0.02 + 0.06*shade;
+      bctx.fillRect(x+drift, y, sw, 1.4);
+    }
+    x += sw; i++;
+  }
+  bctx.globalAlpha = 1;
+}
+function startBg(){ if(bgRunning) return; bgRunning = true; bgRAF = requestAnimationFrame(bgLoop); }
+function stopBg(){ bgRunning = false; if(bgRAF){ cancelAnimationFrame(bgRAF); bgRAF = null; } }
+function bgLoop(t){ bgT = t; drawBg(); if(bgRunning) bgRAF = requestAnimationFrame(bgLoop); }
+function updateBg(){
+  if(!reduced && !bgUserPaused) startBg(); else stopBg();
+  pauseBtn.textContent = bgUserPaused ? 'Play background' : 'Pause background';
+  pauseBtn.setAttribute('aria-pressed', String(bgUserPaused));
+}
+bgSize(); drawBg(); updateBg();
+window.addEventListener('resize', function(){ bgSize(); if(!bgRunning) drawBg(); });
+pauseBtn.addEventListener('click', function(){ bgUserPaused = !bgUserPaused; updateBg(); });
+
+/* ---------- Wave superposition ---------- */
+var WW = 1100, WH = 380;
+var wc = document.getElementById('waveCanvas'), wx = wc.getContext('2d');
+fit(wc, wx, WW, WH);
+var waveUserPaused = false, waveVisible = true, waveRunning = false, waveRAF = null, waveT = 0;
+var wBtn = document.getElementById('wavePlay');
+function waveDraw(t){
+  var w = WW, h = WH, mid = h/2;
+  var k1 = parseFloat(document.getElementById('k1').value);
+  var k2 = parseFloat(document.getElementById('k2').value);
+  var A = parseFloat(document.getElementById('amp').value);
+  wx.fillStyle = '#161210'; wx.fillRect(0,0,w,h);
+  wx.strokeStyle = 'rgba(252,243,225,.09)'; wx.lineWidth = 1;
+  for(var g=0; g<w; g+=55){ wx.beginPath(); wx.moveTo(g,0); wx.lineTo(g,h); wx.stroke(); }
+  wx.beginPath(); wx.moveTo(0,mid); wx.lineTo(w,mid); wx.stroke();
+  function wave(k, phase){ return function(x){ return A*Math.sin(k*x/w*Math.PI*2 - t*0.0016 + phase); }; }
+  var f1 = wave(k1,0), f2 = wave(k2,0);
+  [[f1,'#D9A441',1.6],[f2,'#3FC1C9',1.6]].forEach(function(p){
+    wx.strokeStyle = p[1]; wx.lineWidth = p[2]; wx.globalAlpha = .8; wx.beginPath();
+    for(var x=0;x<=w;x+=3){ var y = mid + p[0](x); x===0 ? wx.moveTo(x,y) : wx.lineTo(x,y); }
+    wx.stroke();
+  });
+  wx.globalAlpha = 1; wx.strokeStyle = '#FCF3E1'; wx.lineWidth = 2.6; wx.beginPath();
+  for(var x=0;x<=w;x+=3){ var y = mid + (f1(x)+f2(x))/2; x===0 ? wx.moveTo(x,y) : wx.lineTo(x,y); }
+  wx.stroke();
+}
+function startWave(){ if(waveRunning) return; waveRunning = true; waveRAF = requestAnimationFrame(waveLoop); }
+function stopWave(){ waveRunning = false; if(waveRAF){ cancelAnimationFrame(waveRAF); waveRAF = null; } }
+function waveLoop(t){ waveT = t; waveDraw(t); if(waveRunning) waveRAF = requestAnimationFrame(waveLoop); }
+function updateWave(){
+  if(!reduced && !waveUserPaused && waveVisible) startWave(); else stopWave();
+  wBtn.textContent = waveUserPaused ? 'Play' : 'Pause';
+  wBtn.setAttribute('aria-pressed', String(!waveUserPaused));
+}
+waveDraw(0); updateWave();
+['k1','k2','amp'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', function(){ if(!waveRunning) waveDraw(waveT); });
+});
+wBtn.addEventListener('click', function(){ waveUserPaused = !waveUserPaused; updateWave(); });
+
+/* ---------- Orbital dance (delta-time integration) ---------- */
+var OW = 1100, OH = 520;
+var oc = document.getElementById('orbitCanvas'), ox = oc.getContext('2d');
+fit(oc, ox, OW, OH);
+var orbitUserPaused = false, orbitVisible = true, orbitRunning = false, orbitRAF = null, lastT = 0;
+var oBtn = document.getElementById('orbitPlay');
+var bodies = [];
+function resetBodies(){
+  var G = parseFloat(document.getElementById('grav').value);
+  var cx = OW/2, cy = OH/2;
+  function spawn(x,y,c){
+    var dx = x-cx, dy = y-cy, r = Math.hypot(dx,dy);
+    var v = Math.sqrt(G/r); // circular-orbit speed (unsoftened r — precession kept intentionally)
+    return {x:x,y:y,vx:-dy/r*v,vy:dx/r*v,c:c,tr:[]};
+  }
+  bodies = [ spawn(250,260,'#D9A441'), spawn(820,260,'#3FC1C9'), spawn(550,90,'#6FAF7E') ];
+}
+function orbitStep(dt){
+  var G = parseFloat(document.getElementById('grav').value);
+  var trailN = parseInt(document.getElementById('trail').value,10);
+  var cx = OW/2, cy = OH/2;
+  bodies.forEach(function(b){
+    var dx = cx-b.x, dy = cy-b.y, d2 = dx*dx+dy*dy+400, d = Math.sqrt(d2);
+    b.vx += G*dx/(d2*d)*dt; b.vy += G*dy/(d2*d)*dt;
+    b.x += b.vx*dt; b.y += b.vy*dt;
+    b.tr.push([b.x,b.y]); if(b.tr.length > trailN) b.tr.splice(0, b.tr.length-trailN);
+  });
+}
+function orbitDraw(){
+  var w = OW, h = OH;
+  ox.fillStyle = '#161210'; ox.fillRect(0,0,w,h);
+  ox.strokeStyle = 'rgba(252,243,225,.07)';
+  for(var r=70;r<600;r+=70){ ox.beginPath(); ox.arc(w/2,h/2,r,0,Math.PI*2); ox.stroke(); }
+  ox.fillStyle = '#C9A227'; ox.beginPath(); ox.arc(w/2,h/2,10,0,Math.PI*2); ox.fill();
+  bodies.forEach(function(b){
+    if(b.tr.length>1){ ox.strokeStyle = b.c; ox.globalAlpha = .45; ox.lineWidth = 1.4; ox.beginPath();
+      b.tr.forEach(function(p,i){ i===0?ox.moveTo(p[0],p[1]):ox.lineTo(p[0],p[1]); }); ox.stroke(); ox.globalAlpha=1; }
+    ox.fillStyle = b.c; ox.beginPath(); ox.arc(b.x,b.y,7,0,Math.PI*2); ox.fill();
+  });
+}
+function startOrbit(){ if(orbitRunning) return; orbitRunning = true; lastT = 0; orbitRAF = requestAnimationFrame(orbitLoop); }
+function stopOrbit(){ orbitRunning = false; if(orbitRAF){ cancelAnimationFrame(orbitRAF); orbitRAF = null; } }
+function orbitLoop(t){
+  if(!lastT) lastT = t;
+  var dt = Math.min((t - lastT)/16.667, 3); lastT = t; // clamp tab-switch spikes
+  orbitStep(dt); orbitDraw();
+  if(orbitRunning) orbitRAF = requestAnimationFrame(orbitLoop);
+}
+function updateOrbit(){
+  if(!reduced && !orbitUserPaused && orbitVisible) startOrbit(); else stopOrbit();
+  oBtn.textContent = orbitUserPaused ? 'Play' : 'Pause';
+  oBtn.setAttribute('aria-pressed', String(!orbitUserPaused));
+}
+resetBodies(); orbitDraw(); updateOrbit();
+['grav','trail'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', function(){ if(!orbitRunning) orbitDraw(); });
+});
+oBtn.addEventListener('click', function(){ orbitUserPaused = !orbitUserPaused; updateOrbit(); });
+document.getElementById('orbitReset').addEventListener('click', function(){ resetBodies(); lastT = 0; orbitDraw(); });
+
+/* ---------- Bézier ---------- */
+var BW = 1100, BH = 460;
+var bc = document.getElementById('bezierCanvas'), bx = bc.getContext('2d');
+fit(bc, bx, BW, BH);
+var pts = [{x:130,y:340},{x:330,y:70},{x:760,y:420},{x:970,y:120}];
+var drag = -1;
+function bez(t){
+  var u = 1-t;
+  return [ u*u*u*pts[0].x + 3*u*u*t*pts[1].x + 3*u*t*t*pts[2].x + t*t*t*pts[3].x,
+           u*u*u*pts[0].y + 3*u*u*t*pts[1].y + 3*u*t*t*pts[2].y + t*t*t*pts[3].y ];
+}
+function bezDraw(){
+  var w = BW, h = BH;
+  bx.fillStyle = '#161210'; bx.fillRect(0,0,w,h);
+  bx.strokeStyle = 'rgba(252,243,225,.06)';
+  for(var g=0;g<w;g+=50){ bx.beginPath(); bx.moveTo(g,0); bx.lineTo(g,h); bx.stroke(); }
+  bx.strokeStyle = 'rgba(217,164,65,.5)'; bx.lineWidth = 1; bx.setLineDash([5,6]);
+  bx.beginPath(); bx.moveTo(pts[0].x,pts[0].y); bx.lineTo(pts[1].x,pts[1].y);
+  bx.moveTo(pts[2].x,pts[2].y); bx.lineTo(pts[3].x,pts[3].y); bx.stroke(); bx.setLineDash([]);
+  bx.strokeStyle = '#3FC1C9'; bx.lineWidth = 3; bx.beginPath();
+  for(var i=0;i<=100;i++){ var p = bez(i/100); i===0?bx.moveTo(p[0],p[1]):bx.lineTo(p[0],p[1]); }
+  bx.stroke();
+  pts.forEach(function(p,i){
+    var anchor = (i===0||i===3);
+    bx.fillStyle = anchor ? '#FCF3E1' : '#D9A441';
+    bx.beginPath(); bx.arc(p.x,p.y, anchor?8:11, 0, Math.PI*2); bx.fill();
+    if(!anchor){ bx.fillStyle = '#161210'; bx.beginPath(); bx.arc(p.x,p.y,4,0,Math.PI*2); bx.fill(); }
+    bx.fillStyle = 'rgba(252,243,225,.7)'; bx.font = '13px JetBrains Mono, monospace';
+    bx.fillText('P'+i, p.x+15, p.y-12);
+  });
+}
+function canvasPos(e){
+  var r = bc.getBoundingClientRect();
+  var cx = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+  var cy = (e.touches ? e.touches[0].clientY : e.clientY) - r.top;
+  return [cx * BW / r.width, cy * BH / r.height]; // CSS rect -> logical units
+}
+function down(e){ var p = canvasPos(e);
+  for(var i=0;i<4;i++){ if(Math.hypot(pts[i].x-p[0], pts[i].y-p[1]) < 26){ drag = i; e.preventDefault(); break; } } }
+function move(e){ if(drag<0) return; var p = canvasPos(e);
+  pts[drag].x = Math.max(20, Math.min(BW-20, p[0]));
+  pts[drag].y = Math.max(20, Math.min(BH-20, p[1])); bezDraw(); e.preventDefault(); }
+function up(){ drag = -1; }
+bc.addEventListener('mousedown', down); bc.addEventListener('mousemove', move);
+window.addEventListener('mouseup', up);
+bc.addEventListener('touchstart', down, {passive:false}); bc.addEventListener('touchmove', move, {passive:false});
+window.addEventListener('touchend', up);
+window.addEventListener('touchcancel', up);
+bezDraw();
+
+/* ---------- Off-screen demos stop animating; manual pause stays authoritative ---------- */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if(en.target === wc){ waveVisible = en.isIntersecting; updateWave(); }
+    if(en.target === oc){ orbitVisible = en.isIntersecting; updateOrbit(); }
+  });
+}, {threshold: 0.05});
+io.observe(wc); io.observe(oc);
+
+/* ---------- Live reduced-motion flip ---------- */
+mq.addEventListener('change', function(e){
+  reduced = e.matches; // update*() cancels live loops on reduce, resumes only if not user-paused
+  updateBg(); updateWave(); updateOrbit();
+});
+
+/* ---------- DPR re-fit (e.g. moving across displays) ---------- */
+window.addEventListener('resize', function(){
+  fit(wc, wx, WW, WH); fit(oc, ox, OW, OH); fit(bc, bx, BW, BH);
+  waveDraw(waveT); orbitDraw(); bezDraw();
+});
+})();
+</script>
+</body>
+</html>
