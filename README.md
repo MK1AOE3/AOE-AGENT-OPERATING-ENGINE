@@ -31,6 +31,8 @@ The objective is verifiability without conflating integrity, identity, time, and
 
 2. Whitepaper
 
+[Read the AOE3 Architectural Whitepaper](WHITEPAPER.md)
+
 Architectural Formalization and Verification Governance of Autonomous Authority Infrastructure: Datapath Enforcement, Cryptographic Source Identity, and Non-Compensatory Containment Mechanics
 
 The whitepaper provides the architectural context for the MK AOE3 project. Architectural claims must be evaluated against their corresponding implementation evidence and verification procedures.
@@ -131,17 +133,17 @@ For reproducible visual output, record the rendering environment, dependency ver
 
 ---
 
-5. How to Run
+5. Repository Status
 
-No build tools or local server are required if the repository's implementation supports direct browser execution.
+**Status: Preliminary / Validation Required**
 
-1. Clone or download the repository.
-2. Open "liminal-drift.html" in a compatible modern web browser.
-3. Use the interface to adjust the seed, particle counts, and color palettes.
-4. Record the environment and parameters when attempting to reproduce a result.
-5. Compare the generated output with the expected reference using the documented verification procedure.
+This repository currently contains architectural doctrine, verification protocols, and the Liminal Drift visualization source. Its contents do not establish implementation completeness, kernel-level enforcement, non-bypassability, or production suitability.
 
-If the implementation requires network-loaded libraries or other external resources, those dependencies must also be available and controlled for offline or reproducible execution.
+- Documentation state: public. Implementation state: pending public release and independent validation.
+- All architectural claims remain bounded by their stated scope, version, and evidence state.
+- Verification tasks defined in Section 7 remain open until independently evidenced.
+
+**DEMONSTRATED != PRODUCTION QUALIFIED. ARCHITECTURE REVIEW != EMPIRICAL PROOF.**
 
 ---
 
@@ -183,13 +185,14 @@ External anchoring remains pending until the anchor is created, published, and i
 
 The verification procedure is part of the project. Each claim must be matched to evidence appropriate to that claim.
 
-Verification claim| Required evidence
-Integrity| Trusted reference digest and independent recomputation
-Authorship| Verifiable signature, validated public key, and independent identity binding
-Historical existence| Independently checkable timestamp or external anchor
-Reproducibility| Controlled inputs, environment specification, and documented repeat runs
-Enforcement| Actual policy decisions and demonstrated blocking at the relevant enforcement boundary
-Independent assurance| Reproducible procedures, preserved evidence, and a third-party report
+Verification claim | Required evidence
+--- | ---
+Integrity | Trusted reference digest and independent recomputation
+Authorship | Verifiable signature, validated public key, and independent identity binding
+Historical existence | Independently checkable timestamp or external anchor
+Reproducibility | Controlled inputs, environment specification, and documented repeat runs
+Enforcement | Actual policy decisions and demonstrated blocking at the relevant enforcement boundary
+Independent assurance | Reproducible procedures, preserved evidence, and a third-party report
 
 C4 — Independent Artifact Verification
 
@@ -275,4 +278,4 @@ Public-AOE3 separates the claims that are often incorrectly combined into a sing
 
 The artifact is public. The claims are bounded. The verification procedure is explicit. Independent evidence determines which guarantees have been established.
 
-The objective is not to ask reviewers to trust a declaration of security, but to provide a precise basis on which they can inspect, test, reproduce, and evaluate the system
+The objective is not to ask reviewers to trust a declaration of security, but to provide a precise basis on which they can inspect, test, reproduce, and evaluate the system.
