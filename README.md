@@ -1,12 +1,18 @@
 # AOE-AGENT-OPERATING-ENGINE
 
-Public-AOE3
+AOE3 — Agent Operating Engine | Public Doctrine Repository
 
 Author: Musab Badewi Mustafa Khiri
 Project: MK AOE3 (Agent Operating Engine)
 IP Registration: UAE Ministry of Economy — MOE-CR-IPR-0004828-20260927
 Date: October 2026
 License: Source-Available (Proprietary). Not OSI-approved Open Source.
+
+## Repository Contents
+
+- [WHITEPAPER.md](WHITEPAPER.md) — Architectural doctrine v1.0 (whitepaper)
+- [MK-AOE3-AND-2026-001_ACTION_REQUIRED.md](MK-AOE3-AND-2026-001_ACTION_REQUIRED.md) — Android installation-integrity investigation brief
+- [liminal-drift.html](liminal-drift.html) — Live generative visualization (open in a browser)
 
 ---
 
@@ -137,7 +143,7 @@ For reproducible visual output, record the rendering environment, dependency ver
 
 **Status: Preliminary / Validation Required**
 
-This repository currently contains architectural doctrine, verification protocols, and the Liminal Drift visualization source. Its contents do not establish implementation completeness, kernel-level enforcement, non-bypassability, or production suitability.
+This repository currently contains architectural doctrine, verification protocols, the Android installation-integrity investigation brief (MK-AOE3-AND-2026-001), and the Liminal Drift visualization source. Its contents do not establish implementation completeness, kernel-level enforcement, non-bypassability, or production suitability.
 
 - Documentation state: public. Implementation state: pending public release and independent validation.
 - All architectural claims remain bounded by their stated scope, version, and evidence state.
@@ -278,4 +284,4 @@ Public-AOE3 separates the claims that are often incorrectly combined into a sing
 
 The artifact is public. The claims are bounded. The verification procedure is explicit. Independent evidence determines which guarantees have been established.
 
-The objective is not to ask reviewers to trust a declaration of security, but to provide a precise basis on which they can inspect, test, reproduce, and evaluate the system
+The objective is not to ask reviewers to trust a declaration of security, but to provide a precise basis on which they can inspect, test, reproduce, and evaluate the system.
