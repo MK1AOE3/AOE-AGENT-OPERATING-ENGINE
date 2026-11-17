@@ -14,6 +14,7 @@ Repository Contents
 - [MK-AOE3-AND-2026-001_ACTION_REQUIRED.md](MK-AOE3-AND-2026-001_ACTION_REQUIRED.md) — Android installation-integrity investigation brief
 - [MK-AOE3-POST-001-SAFETY-FIRST.md](MK-AOE3-POST-001-SAFETY-FIRST.md) — Doctrine essay: industrial safety culture mapped onto agent governance (November 2026)
 - [MK-STD-001-DRAFT-AGENT-ACTION-PROTOCOL.md](MK-STD-001-DRAFT-AGENT-ACTION-PROTOCOL.md) — Draft standard proposal, offered for comment; not a standard in force (November 2026)
+- [MK-STD-002-SOVEREIGN-AGENT-INFRASTRUCTURE.md](MK-STD-002-SOVEREIGN-AGENT-INFRASTRUCTURE.md) — Draft standard proposal for sovereign agent deployment; not a standard in force (November 2026)
 - [liminal-drift.html](liminal-drift.html) — Live generative visualization (open in a browser)
 
 ---
@@ -67,9 +68,15 @@ The essay's core claim is doctrinal, not empirical: the founding insight of indu
 
 3.2 MK-STD-001 — Agent Action Protocol (draft proposal)
 
-A five-section draft standard offered for comment, not a standard in force. Its spine is the stop-work clause (Section 1): a human-held, single-signal authority that halts every pending consequential action and is logged independently. The remaining sections define a fixed-order primary survey, a scenario-card conformance suite, two-layer certification (individual operator and institutional), and a mandatory incident-review discipline.
+A five-section draft standard offered for comment, not a standard in force. Its spine is the stop-work clause: a human-held, single-signal authority that halts every pending consequential action and is logged independently. The remaining sections define a fixed-order primary survey, a scenario-card conformance suite, two-layer certification (individual operator and institutional), and a mandatory incident-review discipline.
 
 No conformance claims may be made against this draft by any party. It is a door, not a wall.
+
+3.3 MK-STD-002 — Sovereign Agent Infrastructure Standard (draft proposal)
+
+A draft standard for the sovereignty layer above MK-STD-001: what it means, operationally, for a deployment to be its own home. The cloud centralized compute and control together; this document addresses the return of compute, and names the conditions under which a sovereignty claim would be checkable — verified owner, defined home, attested keys with a closed trust root, enumerated evidence with non-equivocation, gate completeness with governed exceptions, spine provenance, and the stop-work boundary inherited from MK-STD-001. Certification is offered at two honestly labeled instrument classes: Full-instrument and Accommodated-instrument.
+
+This draft was hardened through eleven adversarial review rounds (110 findings; series closed by the review boards' own recommendation). It states where its own authority ends and what stands at the boundary — declared, pointed to, not governed by the document itself. No conformance claims may be made against it. A draft is a door, not a wall.
 
 ---
 
