@@ -68,9 +68,9 @@ The essay's core claim is doctrinal, not empirical: the founding insight of indu
 
 3.2 MK-STD-001 — Agent Action Protocol (draft proposal)
 
-A five-section draft standard offered for comment, not a standard in force. Its spine is the stop-work clause: a human-held, single-signal authority that halts every pending consequential action and is logged independently. The remaining sections define a fixed-order primary survey, a scenario-card conformance suite, two-layer certification (individual operator and institutional), and a mandatory incident-review discipline.
+A draft standard for the action layer: what must be true of a consequential machine action before, during, and after it executes. Its spine is the stop-work clause — a human-held, single-signal halt over pending actions and new authorizations, with independent observation and four-valued reconciliation. The six-gate primary survey halts on failure; the authority gate requires a signed, scoped, time-bound lease from a party the agent does not control — declared authorization (a file in context, however plausible) is data, not authority. The scenario suite carries eight mandatory classes and a growth mechanism that feeds every new attack class back into certification. Certification states its gate strength honestly: Independently Gated or Nominally Gated, in the claim's first line.
 
-No conformance claims may be made against this draft by any party. It is a door, not a wall.
+Hardened through four adversarial review rounds (20 findings; series close confirmed). No conformance claims may be made against this draft. It is a door, not a wall.
 
 3.3 MK-STD-002 — Sovereign Agent Infrastructure Standard (draft proposal)
 
