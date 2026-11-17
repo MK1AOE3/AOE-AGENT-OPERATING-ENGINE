@@ -1,17 +1,19 @@
-# AOE-AGENT-OPERATING-ENGINE
+AOE-AGENT-OPERATING-ENGINE
 
 AOE3 — Agent Operating Engine | Public Doctrine Repository
 
 Author: Musab Badewi Mustafa Khiri
 Project: MK AOE3 (Agent Operating Engine)
 IP Registration: UAE Ministry of Economy — MOE-CR-IPR-0004828-20260927
-Date: October 2026
+Date: October 2026 (updated November 2026)
 License: Source-Available (Proprietary). Not OSI-approved Open Source.
 
-## Repository Contents
+Repository Contents
 
 - [WHITEPAPER.md](WHITEPAPER.md) — Architectural doctrine v1.0 (whitepaper)
 - [MK-AOE3-AND-2026-001_ACTION_REQUIRED.md](MK-AOE3-AND-2026-001_ACTION_REQUIRED.md) — Android installation-integrity investigation brief
+- [MK-AOE3-POST-001-SAFETY-FIRST.md](MK-AOE3-POST-001-SAFETY-FIRST.md) — Doctrine essay: industrial safety culture mapped onto agent governance (November 2026)
+- [MK-STD-001-DRAFT-AGENT-ACTION-PROTOCOL.md](MK-STD-001-DRAFT-AGENT-ACTION-PROTOCOL.md) — Draft standard proposal, offered for comment; not a standard in force (November 2026)
 - [liminal-drift.html](liminal-drift.html) — Live generative visualization (open in a browser)
 
 ---
@@ -47,15 +49,39 @@ The visualization described below illustrates the project's conceptual model; it
 
 ---
 
-3. Liminal Drift — Strange Attractor Engine
+3. Doctrine Publications (November 2026)
 
-3.1 Overview
+Two doctrine documents are published alongside the whitepaper. Both are position documents: they state the project's doctrine and invite review. Neither establishes conformance, certification, or implementation completeness.
+
+3.1 MK-AOE3-POST-001 — Safety First, for Agents
+
+A doctrine essay mapping a century of industrial safety culture onto agent governance:
+
+- Permit to work → authorization before consequential action
+- Toolbox talk → pre-execution confirmation naming the exact action
+- Stop-work authority → one human anywhere in the chain halts every pending action
+- Near-miss reporting → incident histories a regulator can inspect
+- Safety officer independent of the line → evidence the operator cannot edit
+
+The essay's core claim is doctrinal, not empirical: the founding insight of industrial safety — the worker closest to the hazard holds the authority to stop everything — has not yet been absorbed by the agent industry.
+
+3.2 MK-STD-001 — Agent Action Protocol (draft proposal)
+
+A five-section draft standard offered for comment, not a standard in force. Its spine is the stop-work clause (Section 1): a human-held, single-signal authority that halts every pending consequential action and is logged independently. The remaining sections define a fixed-order primary survey, a scenario-card conformance suite, two-layer certification (individual operator and institutional), and a mandatory incident-review discipline.
+
+No conformance claims may be made against this draft by any party. It is a door, not a wall.
+
+---
+
+4. Liminal Drift — Strange Attractor Engine
+
+4.1 Overview
 
 Liminal Drift is a real-time p5.js generative art engine designed to visualize the conceptual philosophy of the MK AOE3 Autonomous Authority Infrastructure.
 
 It models autonomous particles influenced by a hybrid Clifford strange-attractor manifold and multi-octave Perlin noise fields.
 
-3.2 Architectural Metaphor and Its Limits
+4.2 Architectural Metaphor and Its Limits
 
 Liminal Drift is a visualization of deterministic execution governance. It is not, by itself, a kernel-level enforcement test.
 
@@ -65,7 +91,7 @@ Liminal Drift is a visualization of deterministic execution governance. It is no
 
 These are architectural analogies. Particle movement, attraction, and damping do not demonstrate that a real AI agent is constrained by operating-system security controls.
 
-3.3 Bridging the Metaphor to Actual Enforcement
+4.3 Bridging the Metaphor to Actual Enforcement
 
 Demonstrating real eBPF enforcement requires an independent test against the actual enforcement mechanism.
 
@@ -82,7 +108,7 @@ The enforcement claim remains unverified until the corresponding implementation 
 
 ---
 
-4. Deterministic Reproducibility and Environment Specification
+5. Deterministic Reproducibility and Environment Specification
 
 A core objective of MK AOE3 is to make relevant system states reproducible under explicitly controlled conditions.
 
@@ -106,7 +132,7 @@ The artifact identifier is not drawn into the canvas. The output hash is compute
 
 This avoids making the identifier itself part of the image being hashed. However, the relationship between source, seed, execution, and output must still be established through controlled reproduction and supporting evidence.
 
-4.1 Source Identity Versus Executed Behavior
+5.1 Source Identity Versus Executed Behavior
 
 A "code_hash" identifies source bytes relative to a trusted digest. It does not independently prove that those exact bytes were executed.
 
@@ -119,7 +145,7 @@ Establishing the relationship between reviewed source and executed behavior may 
 - The execution procedure and generated output.
 - Any relevant build, packaging, or loading steps.
 
-4.2 Algorithmic Reproducibility
+5.2 Algorithmic Reproducibility
 
 The same seed and controlled algorithmic inputs are intended to produce the same mathematical trajectory.
 
@@ -127,7 +153,7 @@ Cross-platform equivalence must be validated against a defined reference impleme
 
 The reproducibility claim should specify whether the expected result is exact numerical equality, equality within a defined tolerance, or qualitative similarity.
 
-4.3 Pixel Reproducibility
+5.3 Pixel Reproducibility
 
 Canvas rendering can vary across browsers and operating systems because of rendering implementations, anti-aliasing, font engines, graphics hardware, and related environmental factors.
 
@@ -139,23 +165,23 @@ For reproducible visual output, record the rendering environment, dependency ver
 
 ---
 
-5. Repository Status
+6. Repository Status
 
-**Status: Preliminary / Validation Required**
+Status: Preliminary / Validation Required
 
-This repository currently contains architectural doctrine, verification protocols, the Android installation-integrity investigation brief (MK-AOE3-AND-2026-001), and the Liminal Drift visualization source. Its contents do not establish implementation completeness, kernel-level enforcement, non-bypassability, or production suitability.
+This repository currently contains architectural doctrine, doctrine publications, verification protocols, the Android installation-integrity investigation brief (MK-AOE3-AND-2026-001), and the Liminal Drift visualization source. Its contents do not establish implementation completeness, kernel-level enforcement, non-bypassability, or production suitability.
 
 - Documentation state: public. Implementation state: pending public release and independent validation.
 - All architectural claims remain bounded by their stated scope, version, and evidence state.
-- Verification tasks defined in Section 7 remain open until independently evidenced.
+- Verification tasks defined in Section 8 remain open until independently evidenced.
 
-**DEMONSTRATED != PRODUCTION QUALIFIED. ARCHITECTURE REVIEW != EMPIRICAL PROOF.**
+DEMONSTRATED != PRODUCTION QUALIFIED. ARCHITECTURE REVIEW != EMPIRICAL PROOF.
 
 ---
 
-6. Historical Evidence Verification — L-5 and L-1
+7. Historical Evidence Verification — L-5 and L-1
 
-6.1 Outer Archive Record
+7.1 Outer Archive Record
 
 The following values are recorded as owner-supplied historical verification information:
 
@@ -171,7 +197,7 @@ Independent verification requires a second party to obtain the exact archive byt
 
 The archive size and entry count should also be checked against the retrieved archive.
 
-6.2 L-1 — Historical Existence and Time
+7.2 L-1 — Historical Existence and Time
 
 A matching SHA-256 digest supports integrity comparison against a trusted reference. It does not independently establish when the corresponding data existed.
 
@@ -187,18 +213,17 @@ External anchoring remains pending until the anchor is created, published, and i
 
 ---
 
-7. Verification Protocol — The Next Experiment
+8. Verification Protocol — The Next Experiment
 
 The verification procedure is part of the project. Each claim must be matched to evidence appropriate to that claim.
 
-Verification claim | Required evidence
---- | ---
-Integrity | Trusted reference digest and independent recomputation
-Authorship | Verifiable signature, validated public key, and independent identity binding
-Historical existence | Independently checkable timestamp or external anchor
-Reproducibility | Controlled inputs, environment specification, and documented repeat runs
-Enforcement | Actual policy decisions and demonstrated blocking at the relevant enforcement boundary
-Independent assurance | Reproducible procedures, preserved evidence, and a third-party report
+Verification claim	Required evidence	
+Integrity	Trusted reference digest and independent recomputation	
+Authorship	Verifiable signature, validated public key, and independent identity binding	
+Historical existence	Independently checkable timestamp or external anchor	
+Reproducibility	Controlled inputs, environment specification, and documented repeat runs	
+Enforcement	Actual policy decisions and demonstrated blocking at the relevant enforcement boundary	
+Independent assurance	Reproducible procedures, preserved evidence, and a third-party report	
 
 C4 — Independent Artifact Verification
 
@@ -236,7 +261,7 @@ These steps are proposed verification tasks. Their inclusion in this document do
 
 ---
 
-8. Copyright and Rights Reservation
+9. Copyright and Rights Reservation
 
 Copyright © 2026 Musab Badewi Mustafa Khiri. All Rights Reserved.
 
@@ -244,7 +269,7 @@ License classification: Source-Available (Proprietary). Not OSI-approved Open So
 
 The repository is made publicly accessible for architectural demonstration, educational review, and portfolio purposes, subject to the applicable license terms.
 
-8.1 Stated Restrictions
+9.1 Stated Restrictions
 
 The author's stated licensing intent is that:
 
@@ -256,14 +281,14 @@ These statements describe the intended restrictions. Their scope and enforceabil
 
 A public repository does not automatically grant an open-source license. Conversely, making source code publicly accessible does not by itself establish that every stated restriction is enforceable in every jurisdiction.
 
-8.2 Legal Reference
+9.2 Legal Reference
 
 - Stated statutory basis: UAE Federal Decree-Law No. 38 of 2021.
 - Stated registration identifier: MOE-CR-IPR-0004828-20260927.
 
 The registration details and the legal effect of the cited materials should be checked against the relevant official records. This README does not constitute a legal opinion or independent verification of registration.
 
-8.3 Licensing Inquiries
+9.3 Licensing Inquiries
 
 - Primary: musab.khiri@mk-org.com
 - Alternative: Musab.max222@gmail.com
@@ -271,7 +296,7 @@ The registration details and the legal effect of the cited materials should be c
 
 ---
 
-9. Closing Principle
+10. Closing Principle
 
 Public-AOE3 separates the claims that are often incorrectly combined into a single assertion of trust.
 
